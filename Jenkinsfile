@@ -5,7 +5,7 @@ pipeline{
             steps{
                 git 'https://github.com/Diego-pgm/jenkins_docker.git'
                 script{
-                    docker build -t custom-nginx:"${env.BUILD_ID}"
+                    docker build -t custom-nginx:"${env.BUILD_ID} ."
                 }
             }
         }
