@@ -12,7 +12,7 @@ pipeline{
         stage('Run'){
             steps{
                 script{
-                    "docker run -p 80:80 --name custom-nginx:${env.BUILD_ID}"
+                    "docker run -d -p 80:80 --name custom-nginx:${env.BUILD_ID}"
                 }
             }
         }
