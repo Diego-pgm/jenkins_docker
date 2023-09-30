@@ -5,14 +5,14 @@ pipeline{
             steps{
                 git 'https://github.com/Diego-pgm/jenkins_docker.git'
                 script{
-                    "docker build -t custom-nginx:${env.BUILD_ID} ."
+                    docker.build("custom-nginx:${env.BUILD_ID}")
                 }
             }
         }
         stage('Run'){
             steps{
                 script{
-                    "docker run -d -p 80:80 --name custom-nginx:${env.BUILD_ID}"
+                    docker.image("custom-nginx:${env.BUILD_ID}").run('-p 80:80')
                 }
             }
         }
